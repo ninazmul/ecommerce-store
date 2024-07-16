@@ -8,12 +8,14 @@ import Currency from "@/components/ui/currency";
 import { useRouter } from "next/navigation";
 import { MouseEventHandler } from "react";
 import usePreviewModal from "@/hooks/use-preview-modal";
+import useCart from "@/hooks/use-cart";
 
 interface ProductCard {
   data: Product;
 }
 const ProductCart: React.FC<ProductCard> = ({ data }) => {
   const router = useRouter();
+  const cart = useCart();
   const previewModal = usePreviewModal();
 
   const handleClick = () => {
@@ -24,6 +26,12 @@ const ProductCart: React.FC<ProductCard> = ({ data }) => {
     event.stopPropagation();
     previewModal.onOpen(data);
   };
+
+  const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.stopPropagation();
+    cart.addItem(data);
+  };
+
   return (
     <div
       onClick={handleClick}
@@ -44,7 +52,7 @@ const ProductCart: React.FC<ProductCard> = ({ data }) => {
               icon={<Expand size={20} className="text-gray-600" />}
             />
             <IconButton
-              onClick={() => {}}
+              onClick={onAddToCart}
               icon={<LucideShoppingCart size={20} className="text-gray-600" />}
             />
           </div>

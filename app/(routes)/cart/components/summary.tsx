@@ -1,17 +1,16 @@
-"use client";
-
+import { useState, useEffect } from "react";
 import Button from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
 import toast from "react-hot-toast";
 
 const Summary = () => {
   const searchParams = useSearchParams();
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
+  const shippingFee = 200;
 
   useEffect(() => {
     if (searchParams.get("success")) {
@@ -30,14 +29,13 @@ const Summary = () => {
   }, 0);
 
   const onCheckout = async () => {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
-      {
-        productIds: items.map((item) => item.id),
-      }
-    );
+    let response;
 
-    window.location = response.data.url;
+    response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
+      productIds: items.map((item) => item.id),
+    });
+
+    window.location.href = response.data.url;
   };
 
   return (
@@ -52,13 +50,13 @@ const Summary = () => {
           <div className="text-base font-medium text-gray-900">
             Delivery Fee:
           </div>
-          <p>BDT 200</p>
+          <p>BDT {shippingFee}</p>
         </div>
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
           <div className="text-base font-bold text-gray-900">
             Total Payment:
           </div>
-          <Currency value={totalPrice + 200} />
+          <Currency value={totalPrice + shippingFee} />
         </div>
       </div>
       <Button onClick={onCheckout} className="w-full mt-6">

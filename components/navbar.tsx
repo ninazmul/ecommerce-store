@@ -16,8 +16,13 @@ export default async function Navbar() {
           <Link href={"/"} className="ml-4 flex lg:ml-0 gap-x-2">
             <p className="font-bold text-xl uppercase">GhaniGhor</p>
           </Link>
+          <div className="hidden md:flex">
+            <MainNav data={categories} />
+          </div>
+          <NavbarActions />
+        </div>
+        <div className="md:hidden py-2">
           <MainNav data={categories} />
-          <NavbarActions/>
         </div>
       </Container>
     </div>

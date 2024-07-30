@@ -1,15 +1,34 @@
-"use client"
+"use client";
 
+import { useEffect, useState } from "react";
 import { Product } from "@/types";
 import Currency from "@/components/ui/currency";
 import Button from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
+import useCart from "@/hooks/use-cart";
 
 interface InfoProps {
   data: Product;
 }
 
 const Info: React.FC<InfoProps> = ({ data }) => {
+  const cart = useCart();
+  const [sanitizedDescription, setSanitizedDescription] = useState<string>("");
+
+  useEffect(() => {
+    if (data.description) {
+      // Simple sanitization: remove only dangerous tags, preserve classes and inline styles
+      const sanitized = data.description
+        .replace(/<\/?(script|style)[^>]*>/gi, "") // Remove <script> and <style> tags
+        .replace(/javascript:[^'"]*/gi, ""); // Remove javascript URLs
+      setSanitizedDescription(sanitized);
+    }
+  }, [data.description]);
+
+  const onAddToCart = () => {
+    cart.addItem(data);
+  };
+
   return (
     <div>
       <h1 className="text-3xl font-bold text-gray-900">{data.name}</h1>
@@ -36,10 +55,18 @@ const Info: React.FC<InfoProps> = ({ data }) => {
         </div>
       </div>
       <div className="mt-10 flex items-center gap-x-3">
-        <Button className="flex items-center gap-x-2">
+        <Button onClick={onAddToCart} className="flex items-center gap-x-2">
           Add To Cart <ShoppingCart />
         </Button>
       </div>
+      {data.description && (
+        <div className="mt-10">
+          <p
+            className="text-gray-700"
+            dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
+          />
+        </div>
+      )}
     </div>
   );
 };

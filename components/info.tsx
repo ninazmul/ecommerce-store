@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Product } from "@/types";
 import Currency from "@/components/ui/currency";
 import Button from "@/components/ui/button";
@@ -13,17 +12,6 @@ interface InfoProps {
 
 const Info: React.FC<InfoProps> = ({ data }) => {
   const cart = useCart();
-  const [sanitizedDescription, setSanitizedDescription] = useState<string>("");
-
-  useEffect(() => {
-    if (data.description) {
-      // Simple sanitization: remove only dangerous tags, preserve classes and inline styles
-      const sanitized = data.description
-        .replace(/<\/?(script|style)[^>]*>/gi, "") // Remove <script> and <style> tags
-        .replace(/javascript:[^'"]*/gi, ""); // Remove javascript URLs
-      setSanitizedDescription(sanitized);
-    }
-  }, [data.description]);
 
   const onAddToCart = () => {
     cart.addItem(data);
@@ -60,11 +48,8 @@ const Info: React.FC<InfoProps> = ({ data }) => {
         </Button>
       </div>
       {data.description && (
-        <div className="mt-10">
-          <p
-            className="text-gray-700"
-            dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
-          />
+        <div className="mt-10 prose prose-lg">
+          <div dangerouslySetInnerHTML={{ __html: data.description }} />
         </div>
       )}
     </div>

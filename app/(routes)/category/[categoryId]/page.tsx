@@ -2,12 +2,12 @@ import getCategory from "@/actions/get-category";
 import getColors from "@/actions/get-colors";
 import getProducts from "@/actions/get-products";
 import getSizes from "@/actions/get-sizes";
-import Billboard from "@/components/billboard";
 import Container from "@/components/ui/container";
-import Filter from "./components/fiter";
+import MobileFilters from "./components/mobile-filters";
+import CategoryBillboard from "./components/CategoryBillboard";
 import NoResults from "@/components/ui/no-result";
 import ProductCart from "@/components/ui/product-cart";
-import MobileFilters from "./components/mobile-filters";
+import Filter from "./components/filter";
 
 export const revalidate = 0;
 
@@ -16,10 +16,11 @@ interface CategoryPageProps {
     categoryId: string;
   };
   searchParams: {
-    colorId: string;
-    sizeId: string;
+    colorId?: string;
+    sizeId?: string;
   };
 }
+
 const CategoryPage: React.FC<CategoryPageProps> = async ({
   params,
   searchParams,
@@ -33,10 +34,11 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
   const sizes = await getSizes();
   const colors = await getColors();
   const category = await getCategory(params.categoryId);
+
   return (
     <div className="bg-white">
       <Container>
-        <Billboard data={category.billboard} />
+        <CategoryBillboard data={category?.billboard || null} />
         <div className="px-4 sm:px-6 lg:px-8 pb-24">
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
             <MobileFilters sizes={sizes} colors={colors} />

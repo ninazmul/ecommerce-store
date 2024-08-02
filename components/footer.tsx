@@ -1,25 +1,31 @@
 import Image from "next/image";
-
+import logo from "../public/GHANIGHOR.png"
 export default function Footer() {
   return (
     <div>
-      <footer className="bg-white dark:bg-gray-900">
+      <footer className="bg-lime-600 dark:bg-gray-900">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
-              <a href="/" className="flex items-center">
-                <Image src="" className="h-8 me-3" alt="GhaniGhor Logo" />
-                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              <a href="/" className="flex md:flex-col lg:flex-row justify-center gap-4 items-center">
+                <Image
+                  src={logo}
+                  alt="GhaniGhor Logo"
+                  width={120}
+                  height={120}
+                  className=""
+                />
+                <span className="self-center text-4xl lg:text-7xl font-semibold whitespace-nowrap text-white uppercase">
                   GhaniGhor
                 </span>
               </a>
             </div>
             <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">
                   Resources
                 </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <ul className="text-white dark:text-gray-400 font-medium">
                   <li className="mb-4">
                     <a href="/" className="hover:underline">
                       GhaniGhor
@@ -36,10 +42,10 @@ export default function Footer() {
                 </ul>
               </div>
               <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">
                   Follow us
                 </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <ul className="text-white dark:text-gray-400 font-medium">
                   <li className="mb-4">
                     <a
                       href="https://github.com/themesberg/flowbite"
@@ -59,10 +65,10 @@ export default function Footer() {
                 </ul>
               </div>
               <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">
                   Legal
                 </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <ul className="text-white dark:text-gray-400 font-medium">
                   <li className="mb-4">
                     <a href="#" className="hover:underline">
                       Privacy Policy
@@ -79,7 +85,7 @@ export default function Footer() {
           </div>
           <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
           <div className="sm:flex sm:items-center sm:justify-between">
-            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+            <span className="text-sm text-white sm:text-center dark:text-gray-400">
               © 2023{" "}
               <a href="https://flowbite.com/" className="hover:underline">
                 Flowbite™
@@ -89,7 +95,7 @@ export default function Footer() {
             <div className="flex mt-4 sm:justify-center sm:mt-0">
               <a
                 href="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                className="text-white hover:text-white dark:hover:text-white"
               >
                 <svg
                   className="w-4 h-4"
@@ -108,7 +114,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+                className="text-white hover:text-white dark:hover:text-white ms-5"
               >
                 <svg
                   className="w-4 h-4"
@@ -123,7 +129,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+                className="text-white hover:text-white dark:hover:text-white ms-5"
               >
                 <svg
                   className="w-4 h-4"
@@ -142,7 +148,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+                className="text-white hover:text-white dark:hover:text-white ms-5"
               >
                 <svg
                   className="w-4 h-4"
@@ -161,7 +167,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+                className="text-white hover:text-white dark:hover:text-white ms-5"
               >
                 <svg
                   className="w-4 h-4"

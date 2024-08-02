@@ -18,14 +18,14 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
   }));
 
   return (
-    <nav className="mx-6 flex flex-wrap items-center space-x-4 lg:space-x-6">
+    <nav className="mx-6 flex flex-col md:flex-row items-start p-2 gap-2 md:gap-4 lg:gap-6">
       {routes.map((route) => (
         <Link
           key={route.href}
           href={route.href}
           className={cn(
-            "text-sm font-medium transition-colors hover:text-black",
-            route.active ? "text-black" : "text-neutral-500"
+            "font-semibold text-lg transition-colors hover:text-black",
+            route.active ? "text-white lg:text-lime-900 border-b-2 border-white lg:border-lime-900" : "text-white lg:text-lime-900"
           )}
         >
           {route.label}

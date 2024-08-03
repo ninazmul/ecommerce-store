@@ -2,8 +2,10 @@ import getAllProducts from "@/actions/get-all-products";
 import getBillboards from "@/actions/get-billboard";
 import getProducts from "@/actions/get-products";
 import Billboard from "@/components/billboard";
+import CallToAction from "@/components/call-to-action";
 import ProductList from "@/components/product-list";
 import Container from "@/components/ui/container";
+import WhatsAppToggleButton from "@/components/whatsapp-toggle-button";
 import { Billboard as BillboardType, Product } from "@/types";
 
 export const revalidate = 0;
@@ -20,9 +22,13 @@ export default async function HomePage() {
           <Billboard billboards={billboards} />
           <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
             <ProductList title="Featured Products" items={featuredProducts} />
+            <div className="p-3 bg-amber-100 dark:bg-slate-700">
+              <CallToAction />
+            </div>
             <ProductList title="All Products" items={allProducts} />
           </div>
         </div>
+        <WhatsAppToggleButton />
       </Container>
     );
   } catch (error) {

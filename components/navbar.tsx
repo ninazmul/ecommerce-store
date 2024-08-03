@@ -6,6 +6,8 @@ import NavbarActions from "@/components/navbar-actions";
 import Image from "next/image";
 import logo from "../public/GHANIGHOR.png";
 import ToggleButton from "./ui/toggle-button";
+import { FaPhoneVolume } from "react-icons/fa6";
+import { FaShippingFast } from "react-icons/fa";
 
 export const revalidate = 0;
 
@@ -14,7 +16,16 @@ export default async function Navbar() {
 
   return (
     <Container>
-      <div className="bg-lime-600"><p className="text-white text-center p-2">Helpline:+8801580845746</p></div>
+      <div className="bg-[#009900] flex justify-around items-center">
+        <p className="flex items-center justify-center gap-2 text-white text-center p-2 text-xs md:text-sm">
+          <FaShippingFast />
+          Free Shipping Over ৳5000
+        </p>
+        <p className="flex items-center justify-center gap-2 text-white text-center p-2 text-xs md:text-sm">
+          <FaPhoneVolume />
+          Helpline: +8801713737627
+        </p>
+      </div>
       <nav className="bg-white dark:bg-gray-900 w-full border-b border-gray-200 dark:border-gray-600">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto gap-2">
           <Link
@@ -35,7 +46,7 @@ export default async function Navbar() {
             <ToggleButton />
           </div>
           <div
-            className="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1 bg-lime-600 lg:bg-transparent p-4"
+            className="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1 bg-[#009900] lg:bg-transparent p-4"
             id="navbar-sticky"
           >
             <MainNav data={categories} />

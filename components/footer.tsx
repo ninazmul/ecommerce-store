@@ -1,13 +1,16 @@
 import Image from "next/image";
-import logo from "../public/GHANIGHOR.png"
+import logo from "../public/GHANIGHOR.png";
 export default function Footer() {
   return (
     <div>
-      <footer className="bg-lime-600 dark:bg-gray-900">
+      <footer className="bg-[#009900] dark:bg-gray-900">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
-              <a href="/" className="flex md:flex-col lg:flex-row justify-center gap-4 items-center">
+              <a
+                href="/"
+                className="flex md:flex-col lg:flex-row justify-center gap-4 items-center"
+              >
                 <Image
                   src={logo}
                   alt="GhaniGhor Logo"

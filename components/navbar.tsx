@@ -8,6 +8,7 @@ import logo from "../public/GHANIGHOR.png";
 import ToggleButton from "./ui/toggle-button";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { FaShippingFast } from "react-icons/fa";
+import CategoryNav from "./category-nav";
 
 export const revalidate = 0;
 
@@ -26,7 +27,7 @@ export default async function Navbar() {
           Helpline: +8801713737627
         </p>
       </div>
-      <nav className="bg-white dark:bg-gray-900 w-full border-b border-gray-200 dark:border-gray-600">
+      <nav className="bg-white dark:bg-gray-900 w-full border-b border-gray-200 dark:border-gray-600 ">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto gap-2">
           <Link
             href={"/"}
@@ -41,18 +42,33 @@ export default async function Navbar() {
             />
             <p className="font-bold text-xl uppercase">GhaniGhor</p>
           </Link>
-          <div className="flex lg:order-2 gap-4">
+          <div className="flex md:order-2 gap-4">
             <NavbarActions />
             <ToggleButton />
           </div>
           <div
-            className="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1 bg-[#009900] lg:bg-transparent p-4"
+            className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 bg-[#009900] md:bg-transparent p-2"
             id="navbar-sticky"
           >
-            <MainNav data={categories} />
+            <div>
+              <h1 className="text-white font-bold text-xl md:hidden">Pages:</h1>
+              <MainNav />
+            </div>
+            <div className="md:hidden">
+              <h1 className="text-white font-bold text-xl md:hidden">
+                Categories:
+              </h1>
+              <CategoryNav data={categories} />
+            </div>
           </div>
         </div>
       </nav>
+      <div
+        className="items-center justify-between hidden w-full md:flex lg:w-auto lg:order-1"
+        id="navbar-sticky"
+      >
+        <CategoryNav data={categories} />
+      </div>
     </Container>
   );
 }

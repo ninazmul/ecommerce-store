@@ -38,3 +38,10 @@ export interface Color {
   name: string;
   value: string;
 }
+
+export interface Blog {
+  id: string;
+  title: string;
+  content: string;
+  media: string;
+}

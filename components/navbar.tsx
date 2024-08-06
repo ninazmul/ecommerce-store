@@ -50,25 +50,10 @@ export default async function Navbar() {
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 bg-[#009900] md:bg-transparent p-2"
             id="navbar-sticky"
           >
-            <div>
-              <h1 className="text-white font-bold text-xl md:hidden">Pages:</h1>
-              <MainNav />
-            </div>
-            <div className="md:hidden">
-              <h1 className="text-white font-bold text-xl md:hidden">
-                Categories:
-              </h1>
-              <CategoryNav data={categories} />
-            </div>
+            <MainNav categories={categories} />
           </div>
         </div>
       </nav>
-      <div
-        className="items-center justify-between hidden w-full md:flex lg:w-auto lg:order-1"
-        id="navbar-sticky"
-      >
-        <CategoryNav data={categories} />
-      </div>
     </Container>
   );
 }

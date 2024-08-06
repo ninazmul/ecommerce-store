@@ -2,8 +2,157 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-:root{
+html, body, :root {
   height: 100%;
+}
+
+/* Ensure consistent styling for blog content */
+.prose {
+  line-height: 1.6; /* Base line height for readability */
+}
+
+/* Headings */
+.prose h1 {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin: 1.5rem 0 1rem;
+}
+
+.prose h2 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin: 1.5rem 0 1.25rem;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.prose h4 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0.75rem 0;
+}
+
+.prose h5 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.prose h6 {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin: 0.25rem 0;
+}
+
+/* Paragraphs */
+.prose p {
+  margin-bottom: 1rem; /* Adjust space between paragraphs */
+}
+
+/* Lists */
+.prose ul, .prose ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+/* Links */
+.prose a {
+  color: #1d4ed8; /* Link color */
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: #2563eb; /* Hover color */
+  text-decoration: none;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+/* Images */
+.prose img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Tables */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.prose th, .prose td {
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.prose th {
+  background-color: #f3f4f6;
+}
+
+/* Code Blocks */
+.prose pre {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.prose code {
+  background-color: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+}
+
+/* Text Decorations */
+.prose del {
+  text-decoration: line-through;
+}
+
+.prose u {
+  text-decoration: underline;
+}
+
+/* Alignment */
+.prose .text-center {
+  text-align: center;
+}
+
+.prose .text-right {
+  text-align: right;
+}
+
+.prose .text-left {
+  text-align: left;
+}
+
+/* Font Styles */
+.prose strong {
+  font-weight: bold;
+}
+
+.prose em {
+  font-style: italic;
+}
+
+/* Optional: Hide excessive line breaks */
+.prose br {
+  display: none; /* Hide line breaks if they cause too much space */
 }

@@ -21,7 +21,10 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({ sizes, colors }) => {
 
   return (
     <>
-      <Button onClick={onOpen} className="flex items-center gap-x-2 lg:hidden">
+      <Button
+        onClick={onOpen}
+        className="flex items-center gap-x-2 lg:hidden bg-[#009900]"
+      >
         Filters <Plus size={20} />
       </Button>
       <Dialog
@@ -31,7 +34,7 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({ sizes, colors }) => {
         onClose={onClose}
       >
         {/* dialog background */}
-        <div className="fixed inset-0 bg-black bg-opacity-25" />
+        <div className="fixed inset-0 bg-[#009900] bg-opacity-25" />
         {/* dialog position */}
         <div className="fixed inset-0 z-40 flex">
           <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl">

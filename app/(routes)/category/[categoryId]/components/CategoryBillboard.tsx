@@ -1,3 +1,4 @@
+import React from "react";
 import { Billboard as BillboardType } from "@/types";
 import Image from "next/image";
 import defaultImage from "/public/mustard flowers.jpg";
@@ -12,18 +13,22 @@ const CategoryBillboard: React.FC<CategoryBillboardProps> = ({ data }) => {
   const label = data?.label || "Default Label";
 
   return (
-    <div className="relative p-4 sm:p-6 lg:p-8 rounded-xl overflow-hidden">
-      <div className="relative w-full h-0 pb-[50%] md:pb-[41.67%]">
+    <div className="relative w-full h-[180px] md:h-[300px] lg:h-[500px] overflow-hidden">
+      <div className="relative w-full h-full">
         <Image
           src={typeof imageUrl === "string" ? imageUrl : defaultImage}
           alt={label}
           layout="fill"
           objectFit="cover"
-          className="rounded-xl"
+          className="absolute inset-0"
         />
+        <div className="absolute inset-0 bg-black opacity-50" />{" "}
+        {/* Black overlay */}
       </div>
-      <div className="absolute bottom-0 left-0 right-0 p-4 bg-opacity-75 bg-black text-white rounded-b-xl">
-        <h2 className="text-lg font-semibold">{label}</h2>
+      <div className="absolute inset-0 flex items-center justify-center p-4 text-white text-center">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold">
+          {label}
+        </h2>
       </div>
     </div>
   );

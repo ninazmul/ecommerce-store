@@ -21,23 +21,21 @@ const BlogCart: React.FC<BlogCard> = ({ data }) => {
       className="bg-white cursor-pointer rounded-xl border p-3 space-y-4"
     >
       {/* Media */}
-      <div className="relative">
-        <div className="aspect-square rounded-xl bg-gray-100 relative">
-          {data.media && /\.(jpg|jpeg|png|gif|svg)$/i.test(data.media) ? (
-            <Image
-              src={data.media}
-              alt={data.title}
-              fill
-              className="aspect-square object-cover rounded-md"
-            />
-          ) : (
-            <video
-              src={data.media}
-              controls
-              className="aspect-square object-cover rounded-md"
-            />
-          )}
-        </div>
+      <div className="relative pb-[56.25%] overflow-hidden rounded-xl bg-gray-100">
+        {data.media && /\.(jpg|jpeg|png|gif|svg)$/i.test(data.media) ? (
+          <Image
+            src={data.media}
+            alt={data.title}
+            fill
+            className="absolute inset-0 object-cover rounded-md"
+          />
+        ) : (
+          <video
+            src={data.media}
+            controls
+            className="absolute inset-0 object-cover rounded-md"
+          />
+        )}
       </div>
       {/* Title */}
       <div>

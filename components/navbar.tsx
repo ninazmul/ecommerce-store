@@ -27,7 +27,7 @@ export default async function Navbar() {
           Helpline: +8801713737627
         </p>
       </div>
-      <nav className="bg-white dark:bg-gray-900 w-full border-b border-gray-200 dark:border-gray-600 ">
+      <nav className="bg-white dark:bg-gray-900 w-full border-b border-gray-200 dark:border-gray-600 py-2 px-2 md:px-4 lg:p">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto gap-2">
           <Link
             href={"/"}

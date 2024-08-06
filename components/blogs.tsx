@@ -17,7 +17,7 @@ const Blog: React.FC<BlogProps> = ({ blogs = [], headerTitle }) => {
         <h3 className="font-bold text-3xl">{headerTitle}</h3>
       </div>
       {/* Blog Posts */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
         {blogs.map((blog) => (
           <BlogCart key={blog.id} data={blog} />
         ))}

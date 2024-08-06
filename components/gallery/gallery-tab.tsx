@@ -26,7 +26,7 @@ const GalleryTab: FC<GalleryTabProps> = ({ image }) => {
           <span
             className={clsx(
               "absolute inset-0 rounded-md ring-2 ring-offset-2",
-              selected ? "ring-black" : "ring-transparent"
+              selected ? "ring-[#009900]" : "ring-transparent"
             )}
           />
         </>

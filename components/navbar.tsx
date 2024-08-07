@@ -8,7 +8,6 @@ import logo from "../public/GHANIGHOR.png";
 import ToggleButton from "./ui/toggle-button";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { FaShippingFast } from "react-icons/fa";
-import CategoryNav from "./category-nav";
 
 export const revalidate = 0;
 

@@ -126,7 +126,7 @@ const Summary = () => {
             Select payment method
           </option>
           <option value="cod">Cash on Delivery</option>
-          <option value="bkash">Bkash</option>
+          {/* <option value="bkash">Bkash</option> */}
         </select>
         {paymentMethod === "cod" && (
           <p className="mt-2 text-sm bg-white shadow-md shadow-black p-4 transition-all duration-300">

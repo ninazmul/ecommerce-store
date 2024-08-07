@@ -1,3 +1,4 @@
+import React from "react";
 import getCategory from "@/actions/get-category";
 import getColors from "@/actions/get-colors";
 import getProducts from "@/actions/get-products";
@@ -38,7 +39,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
   return (
     <div className="bg-white">
       <Container>
-        <CategoryBillboard data={category?.billboard || null} />
+        {category && <CategoryBillboard data={category.billboard} />}
         <div className="px-4 sm:px-6 lg:px-8 my-4">
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
             <MobileFilters sizes={sizes} colors={colors} />

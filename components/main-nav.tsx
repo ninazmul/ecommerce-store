@@ -71,8 +71,8 @@ export default function MainNav({
             className={cn(
               "font-semibold text-lg transition-colors hover:text-black",
               route.active
-                ? "text-white lg:text-lime-900 border-b-2 border-white lg:border-lime-900"
-                : "text-white lg:text-lime-900"
+                ? "text-white md:text-lime-900 border-b-2 border-white md:border-lime-900"
+                : "text-white md:text-lime-900"
             )}
           >
             {route.label}

@@ -1,9 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { Product } from "@/types";
 import Currency from "@/components/ui/currency";
 import Button from "@/components/ui/button";
-import { ShoppingCart } from "lucide-react";
+import { MinusCircle, PlusCircle, ShoppingCart } from "lucide-react";
 import useCart from "@/hooks/use-cart";
 
 interface InfoProps {
@@ -12,9 +13,23 @@ interface InfoProps {
 
 const Info: React.FC<InfoProps> = ({ data }) => {
   const cart = useCart();
+  const [quantity, setQuantity] = useState(1);
 
   const onAddToCart = () => {
-    cart.addItem(data);
+    cart.addItem({ ...data, quantity });
+  };
+
+  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Math.max(1, parseInt(e.target.value, 10));
+    setQuantity(value);
+  };
+
+  const incrementQuantity = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
+  const decrementQuantity = () => {
+    setQuantity((prev) => Math.max(1, prev - 1));
   };
 
   return (
@@ -40,6 +55,35 @@ const Info: React.FC<InfoProps> = ({ data }) => {
             className="h-6 w-6 rounded-full border border-gray-600"
             style={{ backgroundColor: data.color?.value }}
           />
+        </div>
+      </div>
+      <div className="mt-6 flex items-center gap-x-4">
+        <label htmlFor="quantity" className="font-semibold text-black">
+          Quantity:
+        </label>
+        <div className="flex items-center gap-x-2">
+          <Button
+            type="button"
+            onClick={decrementQuantity}
+            className="w-8 h-8 text-xl flex items-center justify-center bg-[#009900]"
+          >
+            -
+          </Button>
+          <input
+            id="quantity"
+            type="number"
+            value={quantity}
+            onChange={handleQuantityChange}
+            min={1}
+            className="w-16 border rounded-md py-1 px-2 text-center"
+          />
+          <Button
+            type="button"
+            onClick={incrementQuantity}
+            className="w-8 h-8 text-xl flex items-center justify-center bg-[#009900]"
+          >
+            +
+          </Button>
         </div>
       </div>
       <div className="mt-10 flex items-center gap-x-3">

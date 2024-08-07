@@ -1,5 +1,3 @@
-"use client";
-
 import Currency from "@/components/ui/currency";
 import IconButton from "@/components/ui/icon-button";
 import useCart from "@/hooks/use-cart";
@@ -8,14 +6,18 @@ import { X } from "lucide-react";
 import Image from "next/image";
 
 interface CartItemProps {
-  data: Product;
+  data: Product & { quantity: number };
 }
+
 const CartItem: React.FC<CartItemProps> = ({ data }) => {
   const cart = useCart();
 
   const onRemove = () => {
     cart.removeItem(data.id);
   };
+
+  const totalPrice = data.price * data.quantity;
+
   return (
     <li className="flex py-6 border-b">
       <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
@@ -39,8 +41,11 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
             <p className="text-gray-500 ml-4 border-l border-gray-200 pl-4">
               {data.size.value}
             </p>
+            <p className="text-gray-500 ml-4 border-l border-gray-200 pl-4">
+              Qty: {data.quantity}
+            </p>
           </div>
-          <Currency value={data.price} />
+          <Currency value={totalPrice} />
         </div>
       </div>
     </li>

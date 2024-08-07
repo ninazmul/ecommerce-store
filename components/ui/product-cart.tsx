@@ -29,7 +29,8 @@ const ProductCart: React.FC<ProductCard> = ({ data }) => {
 
   const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
-    cart.addItem(data);
+    // Set the default quantity to 1 when adding to the cart
+    cart.addItem({ ...data, quantity: 1 });
   };
 
   return (
